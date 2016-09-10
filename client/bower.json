@@ -23,6 +23,8 @@
     "components-font-awesome": "~4.6.3",
     "scrollmagic": "~2.0.5",
     "gsap": "~1.19.0",
-    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~8.1.0"
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~8.1.0",
+    "mustache.js": "mustache#~2.2.1",
+    "lodash": "~4.15.0"
   }
 }

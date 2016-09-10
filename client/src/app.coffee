@@ -1,4 +1,90 @@
 $ ->
+  reservation = localStorage.getItem 'reservation'
+  reservation = $.parseJSON(reservation) if reservation?
+
+  song = null
+  if Math.random() > 0.5
+    song = 'i_choose_you'
+  else
+    song = 'marry_me'
+
+  rendered = Mustache.render $('#music').html(), song
+  $('body').append $(rendered)
+
+  postUpdate = ->
+    $.ajax
+      type: "PUT"
+      contentType : 'application/json'
+      processData : false
+      data: JSON.stringify reservation
+      url: "http://localhost:8081/reservations/#{reservation._id}"
+      beforeSend: (request) ->
+        request.setRequestHeader "Authorization", "#{reservation.username} #{reservation.password}"
+      success: (data) ->
+        console.log 'saved'
+      error: (XMLHttpRequest, textStatus, errorThrown) ->
+        console.log 'invalid login info'
+      dataType: 'json'
+
+  updateModel = (name, key, value) ->
+    member = _.find reservation.party, name: name
+    member[key] = value
+    refreshMembers()
+    postUpdate()
+
+  $('#rsvp #party').on 'click', '.vegetarian-set', (evt) ->
+    updateModel $(this).data('name'), 'isVegetarian', false
+
+  $('#rsvp').on 'click', '.vegetarian-unset', (evt) ->
+    updateModel $(this).data('name'), 'isVegetarian', true
+
+  $('#rsvp').on 'click', '.rsvp-set', (evt) ->
+    updateModel $(this).data('name'), 'reserved', true
+
+  $('#rsvp').on 'click', '.rsvp-unset', (evt) ->
+    updateModel $(this).data('name'), 'reserved', false
+
+  hideModal = ->
+    $('.login-modal').hide()
+    $('body').css 'overflow', 'auto'
+    smoothScroll.animateScroll '#main'
+
+  showModal = ->
+    $('.login-modal').show()
+    $('body').css 'overflow', 'hidden'
+
+  refreshMembers = ->
+    $party = $('#party')
+    $party.empty()
+    for member in reservation.party
+      rendered = Mustache.render $('#member').html(), member
+      $party.append $(rendered)
+
+  login = ->
+    username = reservation?.username || $('#username').val()
+    password = reservation?.password || $('#password').val()
+    $.ajax
+      type: "POST"
+      url: 'http://localhost:8081/login'
+      beforeSend: (request) ->
+        request.setRequestHeader "Authorization", "#{username} #{password}"
+      success: (data) ->
+        hideModal()
+        reservation = data
+        localStorage.setItem 'reservation', JSON.stringify reservation
+        refreshMembers()
+      error: (XMLHttpRequest, textStatus, errorThrown) ->
+        reservation = null
+        showModal()
+      dataType: 'json'
+
+  if reservation?
+    hideModal()
+    login()
+
+  $('#login').click login
+
+$ ->
   scrollMagicController = new (ScrollMagic.Controller)
   heartScene = new (ScrollMagic.Scene)(
     triggerElement: '#our-story'

@@ -9,6 +9,51 @@ body
   padding: 0
   background-color: #e9e8ca
   padding-top: 80px
+  overflow: hidden
+
+.login-modal
+  position: fixed
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100%
+  background-color: white
+  z-index: 1000
+
+  .parent
+    position: relative
+    height: 100%
+    width: 100%
+
+    .child
+      width: 100%
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+
+      .wrapper
+        text-align: center
+        width: 400px
+        margin: 0 auto
+        font-family: 'Playfair Display', serif
+
+        h1
+          font-size: 40px
+          line-height: 60px
+          color: #666
+          margin-bottom: 40px
+
+        input
+          width: 200px
+          padding: 10px
+          margin-bottom: 10px
+          text-align: center
+
+        button
+          width: 200px
+          padding: 10px
+          background-color: #b7cbe3
+          color: white
 
 .no-pad
   padding-left: 0px
@@ -152,6 +197,16 @@ p
   .bio
     padding: 50px
     position: relative
+
+    br
+      content: ' '
+      display: block
+      margin: 20px 0
+
+    b
+      color: white
+      text-shadow: 1px 1px rgb(108, 21, 9)
+
   #fish
     position: absolute
     left: -200px
@@ -182,6 +237,7 @@ p
   left: 230px
   top: 10px
   font-size: 0px
+
   i
     display: inline-block
     position: relative
@@ -189,37 +245,22 @@ p
 .ScrollSceneIndicators
   z-index: 9999999 !important
 
-/*light laven
-/* #e9dce6
-
-/*med lav
-/*#aa8ab3
-
-/*dark lav
-/*#6b4c75
-
-/*dark green
- *#cbd08e
-
-/*blue
-/*#b7cbe3
-
-/*gold
-/*#f1db8d
-
 #the-what
   padding-top: 40px
   padding-bottom: 40px
   background-color: #aa8ab3
   text-shadow: 1px 1px black
+
   .square
     height: 300px
     border-right: 1px solid #f1db8d
+
   h1
     position: relative
     top: 80px
     left: 20px
     color: #f1db8d
+
   p
     color: white
 
@@ -228,29 +269,39 @@ p
   padding-bottom: 40px
   background-color: #e9e8ca
   text-shadow: 1px 1px white
+
   .square
     height: 300px
     border-right: 1px solid #666
+
   h1
     position: relative
     top: 80px
     left: 20px
+
   p
     color: #666
+
   .content
     text-align: center
+
   table
     border: none
     width: 100%
+    font-family: 'Playfair Display', serif
+
     th
       border: none
       background-color: none
+
     tr
       border: none
+
     td
       padding: 10px
       text-align: center
       border: none
+
       &.vip
         font-weight: bold
         color: #6b4c75
@@ -258,6 +309,7 @@ p
         border-radius: 50%
         width: 30px
         height: 30px
+
       &.title
         font-weight: bold
         font-size: 50px
@@ -267,22 +319,31 @@ p
   padding-bottom: 40px
   background-color: #b7cbe3
   text-shadow: 1px 1px black
+
   .square
     height: 300px
     border-right: 1px solid #aa8ab3
+
   h1
     position: relative
     top: 80px
     left: 20px
     color: #EEE
+
   p
     color: #EEE
+
+  a
+    font-size: 30px
+
   .content
     text-align: center
     /*font-family: 'Hind', sans-serif;
+
     h2
       font-size: 60px
       color: white
+
     h3
       font-size: 40px
       color: white
@@ -291,21 +352,62 @@ p
   padding-top: 40px
   padding-bottom: 40px
   background-color: #ccd18e
+  background-color: white
   text-align: center
   text-shadow: 1px 1px white
+  padding-bottom: 40px
+
+  .content
+    font-family: 'Hind', sans-serif
+
+    h2
+      margin-bottom: 40px
+
+  .member
+    font-family: 'Hind', sans-serif
+    font-size: 24px
+    margin-bottom: 20px
+
+    .name
+      display: inline-block
+      margin-right: 20px
+
+    .option
+      display: inline-block
+      margin-right: 20px
+
+      i
+        cursor: pointer
+
+    .reserved
+      display: inline-block
+
+      button
+        background-color: #b7cbe3
+        border-radius: 10px
+        color: white
 
 #registry
   padding-top: 40px
   padding-bottom: 40px
   text-align: center
   text-shadow: 1px 1px white
+  height: 680px
+  overflow: hidden
+
+  img
+    width: 100%
+    position: relative
+    top: -200px
 
 #images
   padding-top: 40px
   background-color: white
+
   img
     width: 100%
     margin-bottom: 20px
+
   h1
     padding-bottom: 10px
     color: #6b4c75

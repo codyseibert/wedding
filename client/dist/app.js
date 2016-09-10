@@ -1,4 +1,110 @@
 $(function() {
+  var hideModal, login, postUpdate, refreshMembers, rendered, reservation, showModal, song, updateModel;
+  reservation = localStorage.getItem('reservation');
+  if (reservation != null) {
+    reservation = $.parseJSON(reservation);
+  }
+  song = null;
+  if (Math.random() > 0.5) {
+    song = 'i_choose_you';
+  } else {
+    song = 'marry_me';
+  }
+  rendered = Mustache.render($('#music').html(), song);
+  $('body').append($(rendered));
+  postUpdate = function() {
+    return $.ajax({
+      type: "PUT",
+      contentType: 'application/json',
+      processData: false,
+      data: JSON.stringify(reservation),
+      url: "http://localhost:8081/reservations/" + reservation._id,
+      beforeSend: function(request) {
+        return request.setRequestHeader("Authorization", reservation.username + " " + reservation.password);
+      },
+      success: function(data) {
+        return console.log('saved');
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        return console.log('invalid login info');
+      },
+      dataType: 'json'
+    });
+  };
+  updateModel = function(name, key, value) {
+    var member;
+    member = _.find(reservation.party, {
+      name: name
+    });
+    member[key] = value;
+    refreshMembers();
+    return postUpdate();
+  };
+  $('#rsvp #party').on('click', '.vegetarian-set', function(evt) {
+    return updateModel($(this).data('name'), 'isVegetarian', false);
+  });
+  $('#rsvp').on('click', '.vegetarian-unset', function(evt) {
+    return updateModel($(this).data('name'), 'isVegetarian', true);
+  });
+  $('#rsvp').on('click', '.rsvp-set', function(evt) {
+    return updateModel($(this).data('name'), 'reserved', true);
+  });
+  $('#rsvp').on('click', '.rsvp-unset', function(evt) {
+    return updateModel($(this).data('name'), 'reserved', false);
+  });
+  hideModal = function() {
+    $('.login-modal').hide();
+    $('body').css('overflow', 'auto');
+    return smoothScroll.animateScroll('#main');
+  };
+  showModal = function() {
+    $('.login-modal').show();
+    return $('body').css('overflow', 'hidden');
+  };
+  refreshMembers = function() {
+    var $party, i, len, member, ref, results;
+    $party = $('#party');
+    $party.empty();
+    ref = reservation.party;
+    results = [];
+    for (i = 0, len = ref.length; i < len; i++) {
+      member = ref[i];
+      rendered = Mustache.render($('#member').html(), member);
+      results.push($party.append($(rendered)));
+    }
+    return results;
+  };
+  login = function() {
+    var password, username;
+    username = (reservation != null ? reservation.username : void 0) || $('#username').val();
+    password = (reservation != null ? reservation.password : void 0) || $('#password').val();
+    return $.ajax({
+      type: "POST",
+      url: 'http://localhost:8081/login',
+      beforeSend: function(request) {
+        return request.setRequestHeader("Authorization", username + " " + password);
+      },
+      success: function(data) {
+        hideModal();
+        reservation = data;
+        localStorage.setItem('reservation', JSON.stringify(reservation));
+        return refreshMembers();
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {
+        reservation = null;
+        return showModal();
+      },
+      dataType: 'json'
+    });
+  };
+  if (reservation != null) {
+    hideModal();
+    login();
+  }
+  return $('#login').click(login);
+});
+
+$(function() {
   var heartScene, scrollMagicController;
   scrollMagicController = new ScrollMagic.Controller;
   heartScene = new ScrollMagic.Scene({

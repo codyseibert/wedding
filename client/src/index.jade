@@ -8,6 +8,30 @@ html
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en')
     link(href='https://fonts.googleapis.com/css?family=Hind|Muli:300,400|PT+Serif|Playfair+Display', rel='stylesheet')
   body
+    .login-modal
+      .parent
+        .child
+          .wrapper
+            h1 Welcome to
+              br
+              | Cody & Victoria's
+              br
+              | Wedding Page
+              
+            input#username(
+              placeholder="username"
+              type="username"
+            )
+            br
+            input#password(
+              placeholder="password"
+              type="password"
+            )
+            br
+            button#login Login
+            br
+            span contact support at (423) 244-4023
+  
     .navigation(data-scroll-header='')
       .wrapper
         span.name
@@ -24,7 +48,7 @@ html
           li
             a(data-scroll='', href='#registry') Registry
           li
-            a(data-scroll='', href='#images') Us!
+            a(data-scroll='', href='#images') Eye Candy
     section#main
       .container-fluid
         .row
@@ -43,23 +67,32 @@ html
               i.fa.fa-heart
             h1 Our Story
             .bio
-              #fish
-              p We first met on PlentyOfFish.com
-              br
-              br
-              p
-                | We were both skeptical with the whole
-                | idea of online dating at first, but
-                | it turns out that meeting someone online isn't as bad as
-                | it may sound.
-              br
-              br
-              p
-                | Her first message to him was
-                span#hey "Hey"
-                | .  After that, it was game over.
-              p
-                | After talking for a while, he decided to finally ask her out on a date.  She was estatic to finally get to meet him, and he was nervous.  Only a couple of hours before the date, he bailed.
+              p 
+                b Tina and Cody
+                |  - we first met on PlentyOfFish.com (unfortunately, we were not paid to advertise this)
+                br
+                b Tina
+                |  - I thought online dating was shady, but hey, desprate times call
+                | for desprate measures.
+                br
+                b Cody
+                |  - Wow, dang babe....  I knew I could find a quality African woman online
+                br
+                b Tina
+                |  - Mail order bride status.  All I said to him was "Hey", cause I honeslty didn't know if he would reply. He looked like a down to earth model, my very own Ken doll, plus he had a picture of him with his grandma at his graduation, so at least he was educated.
+                br
+                b Cody
+                |  - Lucky for me, she is obsessed with white boys, so I asked her out on a date.
+                br
+                b Tina
+                |  - Yup, and 45 minutes before the date, you called and bailed.  So I decied to go alone.  I ain't no punk.
+                br
+                b Cody
+                |  - When I found out you went downtown anyway, I felt terrible and decided to drive out anyway to meet you.
+                br
+                b Tina
+                |  - blah blah blah, and then we got engaged!
+                
           .col-md-6.no-pad-right.no-pad
             .circle(style="background-image: url('images/6166.jpeg');")
             .circle(style="background-image: url('images/6182.jpeg');")
@@ -71,9 +104,10 @@ html
             h1 The What
           .col-md-7
             p
-              | Join us for a weekend of fun with plans to include put-put golf, bowling, games, food, and the ceremony!
+              | We rented a huge cabin for the weekend of December 16th - 19th to spend time with family and friends.
             p
-              | We rented a cabin for the weekend of December 16th - 19th. Checkout is at 10am Monday.
+              | Join us for a weekend of fun with plans to include put-put golf, bowling, games, food, and the ceremony!
+            
     section#the-when
       .container
         .row
@@ -192,7 +226,7 @@ html
                         font
                           | 18
                           br
-                      td(valign='top')
+                      td.vip(valign='top')
                         font
                           | 19
                           br
@@ -254,39 +288,92 @@ html
           .col-md-7
             .content
               h2 The Big Moose Lodge
+              a(
+                href="http://thebigmooselodge.com/photos-videos/"
+                target="_blank"
+              ) Check out their website
+              br
               img(src='images/cabin.jpg')
-              h3 702 Wears Valley Rd, Sevierville, TN 37863
+              h3 Sevierville, TN 37863
     section#rsvp
       .container
         .row
-          .col-md-8.col-md-push-2
+          .col-md-10.col-md-push-1
             h1 RSVP
             .content
               h2
-                | Please RSVP using the form below
-              form
-                input(placeholder='Your name')
-                |                 click to rsvp
-                |                 select a food preference
-                |                   vegiterian vs non-vegiterian
-                button Click to RSVP
+                | Please RSVP using the form below.  
+                br
+                | Click the checkbox if the member is a vegetarian
+              
+              #party
+              
     section#registry
       .container
         .row
           .col-md-8.col-md-push-2
             h1 Registry
             p
-              | See our Registry.  Give us money
+              | Click the link below to view our registry
+            a(
+              href="https://www.zola.com/registry/codyandvictoria"
+              target="_blank"
+            ) 
+              img(
+                style="width: 100%; position: relative; top: -200px;"
+                src="images/zola-logo-pride.png"
+              )
+              
     section#images
       .container(style='text-align: center;')
         .row
+          h1 Eye Candy
           #col-0.col-md-4
           #col-1.col-md-4
           #col-2.col-md-4
+          
+    script#member(
+      type="x-tmpl-mustache"
+    ).
+      <div class="member">
+        <div class="name">
+          <b>{{ name }}</b> has <b>{{^reserved}}not{{/reserved}}</b> reserved
+        </div>
+        
+        <div class="option">
+          {{#isVegetarian}}
+            <i class="fa fa-check vegetarian-set" data-name="{{name}}"></i> is Vegetarian
+          {{/isVegetarian}}
+          {{^isVegetarian}}
+            <i class="fa fa-square-o vegetarian-unset" data-name="{{name}}"></i> is Vegetarian
+          {{/isVegetarian}}
+        </div>
+        
+        <div class="reserved">
+          {{#reserved}}
+            <a class="rsvp-unset" data-name="{{name}}">Click to Remove RSVP</a>
+          {{/reserved}}
+          {{^reserved}}
+            <button class="rsvp-set" data-name="{{name}}">Click to RSVP {{name}}</button>
+          {{/reserved}}
+        </div>
+      </div>
+      
+    script#music(
+      type="x-tmpl-mustache"
+    ).
+      <audio autoplay="" controls="" loop="" preload="">
+        <source src="songs/{{.}}.mp3" type="audio/mpeg" class="mp3"/>
+        <source src="songs/{{.}}.ogg" type="audio/ogg" class="ogg"/>
+        Your browser does not support the audio element.
+      </audio>
+    
     script(src='bower_components/jquery/dist/jquery.min.js')
     script(src='bower_components/gsap/src/minified/TweenMax.min.js')
     script(src='bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js')
     script(src='bower_components/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js')
     script(src='bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js')
     script(src='bower_components/smooth-scroll/dist/js/smooth-scroll.min.js')
+    script(src='bower_components/mustache.js/mustache.min.js')
+    script(src='bower_components/lodash/dist/lodash.min.js')
     script(src='app.js')

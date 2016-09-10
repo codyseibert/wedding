@@ -12,7 +12,7 @@ module.exports = function(req, res, next) {
       res.status(404);
       res.send('reservation not found');
     } else {
-      if (reservation.username !== req.username) {
+      if (reservation.username !== req.reservation.username) {
         res.status(401);
         return res.send('invalid access');
       } else {

@@ -22,6 +22,10 @@ gulp.task 'copy', ->
     .pipe gulp.dest('dist/images')
     .pipe connect.reload()
 
+  gulp.src('src/songs/*')
+    .pipe gulp.dest('dist/songs')
+    .pipe connect.reload()
+
   gulp.src('bower_components/**/*')
     .pipe gulp.dest('dist/bower_components')
     .pipe connect.reload()
@@ -34,7 +38,7 @@ gulp.task 'jade', ->
     .pipe connect.reload()
 
 gulp.task 'sass', ->
-  gulp.src('src/app.sass')
+  gulp.src('src/**/*.sass')
     .pipe(sass().on('error', gutil.log))
     .pipe(gulp.dest('dist'))
     .pipe connect.reload()
@@ -44,11 +48,12 @@ gulp.task 'coffee', ->
     .pipe(coffee({bare: true})
     .on('error', gutil.log))
     .pipe(gulp.dest('dist'))
+    .pipe connect.reload()
 
 gulp.task 'replace', ['coffee'], ->
   if isProduction
     gulp.src(['dist/app.js'])
-      .pipe(replace('http://localhost:8081', 'http://wedding-api.codyseibert.com'))
+      .pipe(replace('http://localhost:8081', 'http://weddingapi.codyseibert.com'))
       .pipe(gulp.dest('dist'))
 
 gulp.task 'connect', ->
