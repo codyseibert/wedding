@@ -261,6 +261,14 @@ p {
     color: #666; }
   #the-when .content {
     text-align: center; }
+    #the-when .content .more {
+      font-size: 24px;
+      font-family: 'Playfair Display', serif;
+      line-height: 50px;
+      text-shadow: none; }
+      #the-when .content .more b {
+        color: #6b4c75;
+        text-shadow: 1px 1px white; }
   #the-when table {
     border: none;
     width: 100%;
@@ -311,6 +319,14 @@ p {
     #the-where .content h3 {
       font-size: 40px;
       color: white; }
+    #the-where .content .more {
+      font-size: 24px;
+      font-family: 'Playfair Display', serif;
+      line-height: 50px;
+      text-shadow: none; }
+      #the-where .content .more b {
+        color: #6b4c75;
+        text-shadow: 1px 1px white; }
 
 #rsvp {
   padding-top: 40px;
