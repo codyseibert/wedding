@@ -11,8 +11,6 @@ RUN npm install -g gulp
 RUN npm install -g npm
 
 ENV MONGO_HOST 192.168.1.2
-ENV BCRYPT_PASSWORD testing
-ENV JWT_PASSWORD abc
 
 EXPOSE 8081
 

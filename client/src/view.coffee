@@ -1,9 +1,10 @@
 $ ->
+  password = window.location.href.split('?')[1].split('=')[1]
   $.ajax
     type: "GET"
     url: 'http://localhost:8081/reservations'
     beforeSend: (request) ->
-      request.setRequestHeader "Authorization", "admin 123456"
+      request.setRequestHeader "Authorization", "admin #{password}"
     success: (reservations) ->
       reserved = 0
       vegetarians = 0

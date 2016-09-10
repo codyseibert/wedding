@@ -11,7 +11,7 @@ module.exports = function(req, res, next) {
   auth = req.headers.authorization;
   try {
     ref = auth.split(' '), username = ref[0], password = ref[1];
-    if (username === "admin" && password === "123456") {
+    if (username === "admin" && password === process.env.PASSWORD) {
       return next();
     } else {
       res.status(401);

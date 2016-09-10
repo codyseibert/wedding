@@ -7,7 +7,7 @@ module.exports = (req, res, next) ->
   auth = req.headers.authorization
   try
     [username, password] = auth.split(' ')
-    if username is "admin" and password is "123456"
+    if username is "admin" and password is process.env.PASSWORD
       next()
     else
       res.status 401
