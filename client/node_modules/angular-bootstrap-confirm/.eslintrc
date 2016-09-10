@@ -1,0 +1,12 @@
+{
+  "extends": "mwl",
+  "rules": {
+    "angular/controller-name": [2, "/[A-Z].*Ctrl/"]
+  },
+  "plugins": [
+    "angular"
+  ],
+  "env": {
+    "node": true
+  }
+}

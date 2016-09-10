@@ -1,0 +1,299 @@
+body {
+  font-family: 'Alex Brush', cursive;
+  font-family: 'Parisienne', cursive;
+  font-family: 'Rouge Script', cursive;
+  font-family: 'Lovers Quarrel', cursive;
+  font-family: 'Italianno', cursive;
+  /*font-family: 'Stalemate', cursive; */
+  margin: 0;
+  padding: 0;
+  background-color: #e9e8ca;
+  padding-top: 80px; }
+
+.no-pad {
+  padding-left: 0px; }
+
+.no-pad-right {
+  padding-right: 0px; }
+
+.navigation {
+  position: fixed;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.94);
+  font-weight: normal;
+  font-family: 'Playfair Display', serif;
+  color: black;
+  font-size: 20px;
+  width: 100%;
+  top: 0px;
+  border-bottom: 1px solid black;
+  z-index: 100; }
+  .navigation .wrapper {
+    position: relative; }
+  .navigation .name {
+    display: inline-block;
+    left: 20px;
+    top: 14px;
+    font-size: 30px;
+    position: absolute; }
+
+ul {
+  float: none;
+  display: inline-block;
+  right: 0px;
+  top: 20px;
+  position: absolute; }
+
+li {
+  position: relative;
+  display: block;
+  float: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer; }
+  li:hover {
+    color: black; }
+
+/*light laven */
+/* #e9dce6 */
+/*med lav */
+/*#aa8ab3 */
+/*dark lav */
+/*#6b4c75 */
+/*dark green
+ *#cbd08e */
+/*blue */
+/*#b7cbe3 */
+/*gold */
+/*#f1db8d */
+#main {
+  font-family: 'Stalemate', cursive;
+  height: 620px;
+  overflow: hidden;
+  background-color: #6b4c75;
+  color: white;
+  text-shadow: 1px 1px 1px white; }
+
+.hero {
+  background-image: url("images/6176.jpeg");
+  background-size: cover;
+  width: 100%;
+  height: 700px; }
+
+.title {
+  padding-top: 160px;
+  font-size: 100px;
+  text-align: center;
+  margin-bottom: 0px; }
+
+.headline, .date {
+  text-align: center;
+  font-size: 70px;
+  font-weight: 300; }
+
+h1 {
+  font-size: 100px;
+  margin: 0px; }
+
+iframe {
+  width: 100%;
+  height: 100%; }
+
+.banner {
+  width: 100%;
+  height: auto; }
+
+.grid {
+  background: #DDD; }
+  .grid:after {
+    content: '';
+    display: block;
+    clear: both; }
+
+.grid-sizer {
+  width: 33.333%; }
+
+.grid-item {
+  width: 33.333%;
+  float: left; }
+  .grid-item img {
+    display: block;
+    max-width: 100%; }
+
+p {
+  font-size: 30px;
+  line-height: 50px;
+  text-shadow: 1px 1px black;
+  font-family: 'Hind', sans-serif; }
+
+#our-story {
+  text-align: center;
+  background-color: #b7cbe3; }
+  #our-story h1 {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    z-index: 1;
+    position: relative; }
+  #our-story .images {
+    height: 300px;
+    text-align: center;
+    margin-top: 100px; }
+  #our-story p {
+    text-align: left;
+    color: #333;
+    text-shadow: 1px 1px white;
+    font-family: 'Hind', sans-serif; }
+  #our-story .bio {
+    padding: 50px;
+    position: relative; }
+  #our-story #fish {
+    position: absolute;
+    left: -200px;
+    top: 100px;
+    width: 50px;
+    height: 50px;
+    background-image: url("images/fish.png");
+    background-size: cover; }
+  #our-story .circle {
+    display: inline-block;
+    width: 100%;
+    height: 600px;
+    /*border-radius: 50%; */
+    /*border: 2px solid #f1db8d; */
+    /*box-shadow: 5px 5px 5px #FFF; */
+    background-size: cover;
+    /*-ms-transform: translate3d(0px, 0px, 0px) scale(0.2, 0.2);
+     *-webkit-transform: translate3d(0px, 0px, 0px) scale(0.2, 0.2);
+     *transform: translate3d(0px, 0px, 0px) scale(0.2, 0.2); */ }
+
+#heart {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  color: #532e5d;
+  z-index: 0;
+  left: 230px;
+  top: 10px;
+  font-size: 0px; }
+  #heart i {
+    display: inline-block;
+    position: relative; }
+
+.ScrollSceneIndicators {
+  z-index: 9999999 !important; }
+
+/*light laven */
+/* #e9dce6 */
+/*med lav */
+/*#aa8ab3 */
+/*dark lav */
+/*#6b4c75 */
+/*dark green
+ *#cbd08e */
+/*blue */
+/*#b7cbe3 */
+/*gold */
+/*#f1db8d */
+#the-what {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #aa8ab3;
+  text-shadow: 1px 1px black; }
+  #the-what .square {
+    height: 300px;
+    border-right: 1px solid #f1db8d; }
+  #the-what h1 {
+    position: relative;
+    top: 80px;
+    left: 20px;
+    color: #f1db8d; }
+  #the-what p {
+    color: white; }
+
+#the-when {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #e9e8ca;
+  text-shadow: 1px 1px white; }
+  #the-when .square {
+    height: 300px;
+    border-right: 1px solid #666; }
+  #the-when h1 {
+    position: relative;
+    top: 80px;
+    left: 20px; }
+  #the-when p {
+    color: #666; }
+  #the-when .content {
+    text-align: center; }
+  #the-when table {
+    border: none;
+    width: 100%; }
+    #the-when table th {
+      border: none;
+      background-color: none; }
+    #the-when table tr {
+      border: none; }
+    #the-when table td {
+      padding: 10px;
+      text-align: center;
+      border: none; }
+      #the-when table td.vip {
+        font-weight: bold;
+        color: #6b4c75;
+        background-color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px; }
+      #the-when table td.title {
+        font-weight: bold;
+        font-size: 50px; }
+
+#the-where {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #b7cbe3;
+  text-shadow: 1px 1px black; }
+  #the-where .square {
+    height: 300px;
+    border-right: 1px solid #aa8ab3; }
+  #the-where h1 {
+    position: relative;
+    top: 80px;
+    left: 20px;
+    color: #EEE; }
+  #the-where p {
+    color: #EEE; }
+  #the-where .content {
+    text-align: center;
+    /*font-family: 'Hind', sans-serif; */ }
+    #the-where .content h2 {
+      font-size: 60px;
+      color: white; }
+    #the-where .content h3 {
+      font-size: 40px;
+      color: white; }
+
+#rsvp {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #ccd18e;
+  text-align: center;
+  text-shadow: 1px 1px white; }
+
+#registry {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  text-shadow: 1px 1px white; }
+
+#images {
+  padding-top: 40px;
+  background-color: white; }
+  #images img {
+    width: 100%;
+    margin-bottom: 20px; }
+  #images h1 {
+    padding-bottom: 10px;
+    color: #6b4c75; }

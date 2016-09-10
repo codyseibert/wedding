@@ -1,0 +1,24 @@
+{
+  "name": "heatcanvas",
+  "version": "1.2.3",
+  "main": [
+    "heatcanvas.js",
+    "heatcanvas-worker.js",
+    "heatcanvas-baidumap.js",
+    "heatcanvas-leaflet.js",
+    "heatcanvas-googlemaps.js",
+    "heatcanvas-openlayers.js"
+  ],
+  "dependencies": {},
+  "homepage": "https://github.com/sunng87/heatcanvas",
+  "_release": "1.2.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.2.3",
+    "commit": "b33e9087d53bf799b0b35c38ef59a2d2c5e64d8a"
+  },
+  "_source": "https://github.com/sunng87/heatcanvas.git",
+  "_target": "~1.2.3",
+  "_originalSource": "heatcanvas",
+  "_direct": true
+}

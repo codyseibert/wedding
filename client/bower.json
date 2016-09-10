@@ -1,0 +1,28 @@
+{
+  "name": "wedding",
+  "authors": [
+    "Cody Seibert <cseibert113@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "heatcanvas": "~1.2.3",
+    "masonry": "~4.1.1",
+    "jquery": "~3.1.0",
+    "imagesloaded": "~4.1.1",
+    "components-font-awesome": "~4.6.3",
+    "scrollmagic": "~2.0.5",
+    "gsap": "~1.19.0",
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git#~8.1.0"
+  }
+}
