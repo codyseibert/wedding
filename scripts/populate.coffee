@@ -1,6 +1,7 @@
 request = require 'request-json'
-client = request.createClient 'http://localhost:8081/'
+client = request.createClient 'http://weddingapi.codyseibert.com/'
 client.headers['Authorization'] = 'admin 123456'
+return
 
 reservations = [
   username: 'charity'
@@ -426,3 +427,4 @@ reservations = [
 
 for reservation in reservations
   client.post 'reservations', reservation, (err, res, body) ->
+    console.log err
