@@ -8,7 +8,7 @@ module.exports = function(req, res, next) {
   try {
     ref = auth.split(' '), username = ref[0], password = ref[1];
     return Reservations.findOne({
-      username: username
+      username: username.toLowerCase()
     }).then(function(reservation) {
       if (reservation == null) {
         res.status(404);

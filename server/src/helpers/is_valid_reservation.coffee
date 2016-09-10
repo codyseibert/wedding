@@ -4,7 +4,7 @@ module.exports = (req, res, next) ->
   auth = req.headers.authorization
   try
     [username, password] = auth.split(' ')
-    Reservations.findOne(username: username)
+    Reservations.findOne(username: username.toLowerCase())
       .then (reservation) ->
         if not reservation?
           res.status 404

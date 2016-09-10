@@ -10,7 +10,7 @@ module.exports = (req, res, next) ->
         res.send 'reservation not found'
         return
       else
-        if reservation.username isnt req.reservation.username
+        if reservation.username.toLowerCase() isnt req.reservation.username.toLowerCase()
           res.status 401
           res.send 'invalid access'
         else
