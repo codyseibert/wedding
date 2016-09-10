@@ -52,7 +52,7 @@ gulp.task 'coffee', ->
 
 gulp.task 'replace', ['coffee'], ->
   if isProduction
-    gulp.src(['dist/app.js'])
+    gulp.src(['dist/app.js', 'dist/view.js'])
       .pipe(replace('http://localhost:8081', 'http://weddingapi.codyseibert.com'))
       .pipe(gulp.dest('dist'))
 
