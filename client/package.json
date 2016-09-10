@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run docker-build && npm run docker-stop && npm run docker-rm && npm run docker-run",
-    "serve": "npm install && gulp",
+    "serve": "npm install && bower install && gulp",
     "docker-stop": "docker stop wedding-ui || true",
     "docker-rm": "docker rm wedding-ui || true",
     "docker-build": "docker build -t wedding-ui -f Dockerfile.dev .",
